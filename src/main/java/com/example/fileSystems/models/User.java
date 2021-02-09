@@ -1,4 +1,4 @@
-package com.example.Files.models;
+package com.example.fileSystems.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -6,13 +6,15 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "user")
 public class User {
 
     @Column
     private String name;
 
     @JsonIgnoreProperties({"user"})
-    @OneToMany(mappedBy = "user")
+    @OneToMany
     private List<Folder> folders;
 
     @Id
@@ -42,5 +44,13 @@ public class User {
 
     public void setFolders(List<Folder> folders) {
         this.folders = folders;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

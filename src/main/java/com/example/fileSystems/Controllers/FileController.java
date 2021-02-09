@@ -1,8 +1,8 @@
-package com.example.Files.Controllers;
+package com.example.fileSystems.Controllers;
 
 
-import com.example.Files.Repositories.FileRepository;
-import com.example.Files.models.File;
+import com.example.fileSystems.Repositories.FileRepository;
+import com.example.fileSystems.models.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

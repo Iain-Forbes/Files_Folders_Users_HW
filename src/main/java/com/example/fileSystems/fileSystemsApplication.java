@@ -1,13 +1,13 @@
-package com.example.Files;
+package com.example.fileSystems;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FilesApplication {
+public class fileSystemsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FilesApplication.class, args);
+		SpringApplication.run(fileSystemsApplication.class, args);
 	}
 
 }

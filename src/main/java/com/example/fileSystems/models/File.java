@@ -1,16 +1,13 @@
-package com.example.Files.models;
+package com.example.fileSystems.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "files")
+
 public class File {
 
     @Column
@@ -26,7 +23,7 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @JsonIgnoreProperties({"files"})
+    @JsonIgnoreProperties({"folder"})
     @ManyToOne
     @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;
