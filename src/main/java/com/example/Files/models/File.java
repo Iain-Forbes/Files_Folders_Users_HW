@@ -1,15 +1,31 @@
 package com.example.Files.models;
 
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import org.springframework.boot.autoconfigure.web.WebProperties;
+
+import javax.annotation.Generated;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "files")
 public class File {
 
+    @Column
     private String name;
+
+    @Column
     private String extension;
+
+    @Column
     private int size;
-    private List<Folder> folder;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+
+    private List<Folder> folder;
 
     public File(String name, String extension, int size) {
         this.name = name;

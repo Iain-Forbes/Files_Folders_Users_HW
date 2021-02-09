@@ -1,11 +1,21 @@
 package com.example.Files.models;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Folder {
 
+    @Column
     private String title;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private List<File> files;
     private List<User> users;
 
