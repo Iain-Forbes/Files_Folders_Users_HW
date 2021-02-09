@@ -1,5 +1,6 @@
 package com.example.Files.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 
@@ -25,13 +26,16 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    private List<Folder> folder;
+    @JsonIgnoreProperties({"files"})
+    @ManyToOne
+    @JoinColumn(name = "folder_id", nullable = false)
+    private Folder folder;
 
-    public File(String name, String extension, int size) {
+    public File(String name, String extension, int size, Folder folder) {
         this.name = name;
         this.extension = extension;
         this.size = size;
-        this.folder = new ArrayList<>();
+        this.folder = folder;
     }
 
     public File() {
@@ -61,19 +65,19 @@ public class File {
         this.size = size;
     }
 
-    public List<Folder> getFolder() {
-        return folder;
-    }
-
-    public void setFolder(List<Folder> folder) {
-        this.folder = folder;
-    }
-
     public Long getId() {
         return Id;
     }
 
     public void setId(Long id) {
         Id = id;
+    }
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
     }
 }

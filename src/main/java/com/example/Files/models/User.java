@@ -1,9 +1,8 @@
 package com.example.Files.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,8 @@ public class User {
     @Column
     private String name;
 
+    @JsonIgnoreProperties({"user"})
+    @OneToMany(mappedBy = "user")
     private List<Folder> folders;
 
     @Id
