@@ -23,8 +23,8 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @JsonIgnoreProperties({"folders", "files", "users"})
     @ManyToOne
+    @JsonIgnoreProperties({"files"})
     @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;
 
