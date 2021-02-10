@@ -24,7 +24,7 @@ public class FileController {
     }
 
 
-    @GetMapping("files/{id}")
+    @GetMapping("file/{id}")
     public ResponseEntity<Optional<File>> getFileByID(@PathVariable Long id){
         return new ResponseEntity<>(FileRepository.findById(id), HttpStatus.OK);
     }

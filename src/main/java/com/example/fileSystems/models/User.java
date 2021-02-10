@@ -13,8 +13,8 @@ public class User {
     @Column
     private String name;
 
-    @JsonIgnoreProperties({"user"})
-    @OneToMany
+    @JsonIgnoreProperties({"user", "files", "folder"})
+    @OneToMany(mappedBy = "user")
     private List<Folder> folders;
 
     @Id
