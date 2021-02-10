@@ -18,12 +18,12 @@ public class Folder {
     private Long id;
 
 
-    @JsonIgnoreProperties({"folder", "file"})
+    @JsonIgnoreProperties({"folder"})
     @OneToMany(mappedBy = "folder")
     private List<File> file;
 
-    @JsonIgnoreProperties({"users"})
     @ManyToOne
+    @JsonIgnoreProperties({"folders"})
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
