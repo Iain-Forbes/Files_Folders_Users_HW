@@ -18,7 +18,7 @@ public class Folder {
     private Long id;
 
 
-    @JsonIgnoreProperties({"folder"})
+    @JsonIgnoreProperties({"folders"})
     @OneToMany(mappedBy = "folder")
     private List<File> file;
 
