@@ -23,7 +23,7 @@ public class FolderController {
     }
 
 
-    @GetMapping("folder/{id}")
+    @GetMapping("folders/{id}")
     public ResponseEntity<Optional<Folder>> getFolderByID(@PathVariable Long id){
         return new ResponseEntity<>(FolderRepository.findById(id), HttpStatus.OK);
     }
